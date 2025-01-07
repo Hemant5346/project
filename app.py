@@ -1,12 +1,13 @@
-# search_app.py
+ search_app.py
 
 import streamlit as st
 import os
 from typing import List
+from sentence_transformers import SentenceTransformer
+from qdrant_client import QdrantClient
+from qdrant_client.models import Filter, FieldCondition, MatchValue
 from dotenv import load_dotenv
 import re
-import requests
-from typing import Optional
 
 # Load environment variables
 load_dotenv()
@@ -20,58 +21,64 @@ class SearchResult:
 
 class DocumentSearcher:
     def __init__(self):
-        """Initialize searcher with API endpoint settings"""
-        self.api_endpoint = os.getenv("SEARCH_API_ENDPOINT")
-        self.api_key = os.getenv("API_KEY")
+        """Initialize searcher with Qdrant Cloud settings"""
+        self.qdrant_url = os.getenv("QDRANT_URL")
+        self.qdrant_api_key = os.getenv("QDRANT_API_KEY")
         
-        if not self.api_endpoint:
-            raise ValueError("Search API endpoint not found in environment variables")
+        if not self.qdrant_url or not self.qdrant_api_key:
+            raise ValueError("Qdrant Cloud credentials not found in environment variables")
+            
+        self.model = SentenceTransformer('intfloat/multilingual-e5-large')
+        self.qdrant_client = QdrantClient(
+            url=self.qdrant_url,
+            api_key=self.qdrant_api_key
+        )
+        self.collection_name = "document_embeddings_v1"
 
     def search(self, query: str, top_k: int = 3) -> List[SearchResult]:
-        """Perform semantic search via API"""
+        """Perform semantic search"""
         try:
-            # Prepare API request
-            headers = {}
-            if self.api_key:
-                headers["Authorization"] = f"Bearer {self.api_key}"
-                
-            params = {
-                "query": query,
-                "top_k": top_k
-            }
+            # Create instruction-style query
+            instruction_query = f"retrieve financial document information about: {query}"
+            query_vector = self.model.encode(instruction_query).tolist()
             
-            # Make API request
-            response = requests.post(
-                self.api_endpoint,
-                json=params,
-                headers=headers
+            # Create search filter
+            query_lower = query.lower()
+            filter_conditions = []
+            
+            if re.search(r'\b20[12]\d\b', query_lower):
+                filter_conditions.append(
+                    FieldCondition(key="has_year", match=MatchValue(value=True))
+                )
+            if 'dividend' in query_lower:
+                filter_conditions.append(
+                    FieldCondition(key="has_dividend", match=MatchValue(value=True))
+                )
+            
+            search_filter = Filter(should=filter_conditions) if filter_conditions else None
+            
+            # Perform search
+            results = self.qdrant_client.search(
+                collection_name=self.collection_name,
+                query_vector=query_vector,
+                limit=top_k,
+                query_filter=search_filter
             )
-            response.raise_for_status()
             
             # Process results
-            results = response.json()
             return [
                 SearchResult(
-                    text=item["text"],
-                    document=item["document_name"],
-                    score=item["score"],
-                    page=item.get("page_number", 1)
+                    text=res.payload["text"],
+                    document=res.payload["document_name"],
+                    score=res.score,
+                    page=res.payload.get("page_number", 1)
                 )
-                for item in results
+                for res in results
             ]
             
         except Exception as e:
             st.error(f"Search error: {str(e)}")
             return []
-
-@st.cache_resource
-def get_searcher() -> Optional[DocumentSearcher]:
-    """Initialize and cache the searcher"""
-    try:
-        return DocumentSearcher()
-    except ValueError as e:
-        st.error(str(e))
-        return None
 
 def main():
     st.set_page_config(page_title="Financial Document Search", page_icon="📄")
@@ -80,8 +87,14 @@ def main():
     st.write("Search through your uploaded financial documents using semantic search.")
 
     # Initialize searcher
-    searcher = get_searcher()
-    if not searcher:
+    @st.cache_resource
+    def get_searcher():
+        return DocumentSearcher()
+    
+    try:
+        searcher = get_searcher()
+    except ValueError as e:
+        st.error(str(e))
         st.stop()
 
     # Search interface
@@ -113,8 +126,8 @@ def main():
     st.sidebar.title("About")
     st.sidebar.info(
         "This is a search interface for your financial documents. "
-        "The search is powered by a separate API service that handles "
-        "the document embeddings and vector search."
+        "To upload new documents, please use the separate upload script "
+        "with your Qdrant Cloud credentials."
     )
 
 if __name__ == "__main__":
