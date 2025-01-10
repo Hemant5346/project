@@ -1,134 +1,205 @@
-#search_app.py
-
 import streamlit as st
-import os
-from typing import List
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
-from qdrant_client.models import Filter, FieldCondition, MatchValue
+from typing import List, Dict
+import logging
+from os import environ
 from dotenv import load_dotenv
-import re
+import os
 
-# Load environment variables
+
+# Load environment variables from .env file
 load_dotenv()
 
-class SearchResult:
-    def __init__(self, text: str, document: str, score: float, page: int):
-        self.text = text
-        self.document = document
-        self.score = score
-        self.page = page
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler('search.log')
+    ]
+)
+logger = logging.getLogger(__name__)
 
-class DocumentSearcher:
-    def __init__(self):
-        """Initialize searcher with Qdrant Cloud settings"""
-        self.qdrant_url = os.getenv("QDRANT_URL")
-        self.qdrant_api_key = os.getenv("QDRANT_API_KEY")
+class SearchResult:
+    """Class to hold search result information"""
+    def __init__(self, text: str, file_name: str, chunk_id: int, score: float):
+        self.text = text
+        self.file_name = file_name
+        self.chunk_id = chunk_id
+        self.score = score
+
+def display_results(results: List[SearchResult]):
+    """Display search results in a formatted way"""
+    for idx, result in enumerate(results, 1):
+        st.markdown(f"### Result {idx}")
+        with st.expander(f"Score: {result.score:.3f} - {result.file_name}"):
+            st.markdown(f"**Source File:** {result.file_name}")
+            st.markdown(f"**Chunk ID:** {result.chunk_id}")
+            st.markdown(f"**Relevance Score:** {result.score:.3f}")
+            st.markdown("**Content:**")
+            st.markdown(result.text)
+        st.markdown("---")
+
+class MarkdownSearcher:
+    def __init__(self, model_name: str = 'intfloat/multilingual-e5-large',
+                 qdrant_url: str = None,
+                 api_key: str = None):
+        """Initialize the Markdown searcher with model and database connection"""
+        # Use provided credentials or fall back to environment variables
+        self.qdrant_url = qdrant_url or os.getenv('QDRANT_URL')
+        self.api_key = api_key or os.getenv('QDRANT_API_KEY')
         
-        if not self.qdrant_url or not self.qdrant_api_key:
-            raise ValueError("Qdrant Cloud credentials not found in environment variables")
+        if not self.qdrant_url or not self.api_key:
+            raise ValueError("Qdrant Cloud URL and API key are required. Set them in .env file or pass as parameters.")
             
-        self.model = SentenceTransformer('intfloat/multilingual-e5-large')
-        self.qdrant_client = QdrantClient(
-            url=self.qdrant_url,
-            api_key=self.qdrant_api_key
-        )
-        self.collection_name = "document_embeddings_v1"
+        try:
+            self.model = SentenceTransformer(model_name)
+            self.qdrant_client = QdrantClient(
+                url=self.qdrant_url,
+                api_key=self.api_key
+            )
+            logger.info(f"Successfully connected to Qdrant Cloud at {self.qdrant_url}")
+        except Exception as e:
+            logger.error(f"Failed to initialize: {str(e)}")
+            raise
+        self.collection_name = "markdown_embeddings1"
+
+    def verify_collection(self) -> bool:
+        """Verify that the collection exists and contains data"""
+        try:
+            # Get collections list
+            collections_response = self.qdrant_client.get_collections()
+            
+            # Log raw response for debugging
+            logger.info(f"Raw collections response: {collections_response}")
+            
+            # Get list of collection names
+            collections = collections_response.collections
+            collection_names = [collection.name for collection in collections]
+            
+            logger.info(f"Found collections: {collection_names}")
+            
+            if self.collection_name not in collection_names:
+                logger.warning(f"Collection {self.collection_name} not found in {collection_names}")
+                return False
+            
+            # Get specific collection info
+            collection_info = self.qdrant_client.get_collection(self.collection_name)
+            
+            if collection_info.vectors_count == 0:
+                logger.warning(f"Collection {self.collection_name} exists but is empty")
+                return False
+            
+            logger.info(f"Verified collection {self.collection_name} with {collection_info.vectors_count} vectors")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error verifying collection: {str(e)}")
+            logger.exception("Full traceback:")
+            return False
 
     def search(self, query: str, top_k: int = 3) -> List[SearchResult]:
-        """Perform semantic search"""
+        """Search for relevant content using the query"""
+        if not query.strip():
+            return []
+            
         try:
+            # Verify collection exists and has data
+            if not self.verify_collection():
+                raise Exception("No data available for search. Please ensure documents are uploaded.")
+            
             # Create instruction-style query
-            instruction_query = f"retrieve financial document information about: {query}"
+            instruction_query = f"retrieve presentation content about: {query}"
             query_vector = self.model.encode(instruction_query).tolist()
             
-            # Create search filter
-            query_lower = query.lower()
-            filter_conditions = []
-            
-            if re.search(r'\b20[12]\d\b', query_lower):
-                filter_conditions.append(
-                    FieldCondition(key="has_year", match=MatchValue(value=True))
-                )
-            if 'dividend' in query_lower:
-                filter_conditions.append(
-                    FieldCondition(key="has_dividend", match=MatchValue(value=True))
-                )
-            
-            search_filter = Filter(should=filter_conditions) if filter_conditions else None
-            
-            # Perform search
+            # Search in Qdrant
             results = self.qdrant_client.search(
                 collection_name=self.collection_name,
                 query_vector=query_vector,
-                limit=top_k,
-                query_filter=search_filter
+                limit=top_k
             )
             
             # Process results
-            return [
-                SearchResult(
+            search_results = []
+            for res in results:
+                result = SearchResult(
                     text=res.payload["text"],
-                    document=res.payload["document_name"],
-                    score=res.score,
-                    page=res.payload.get("page_number", 1)
+                    file_name=res.payload["file_name"],
+                    chunk_id=res.payload["chunk_id"],
+                    score=res.score
                 )
-                for res in results
-            ]
+                search_results.append(result)
+            
+            return search_results
             
         except Exception as e:
-            st.error(f"Search error: {str(e)}")
-            return []
+            logger.error(f"Search error: {str(e)}")
+            raise
 
 def main():
-    st.set_page_config(page_title="Financial Document Search", page_icon="📄")
+    st.title("Markdown Content Search System")
     
-    st.title("Financial Document Search System")
-    st.write("Search through your uploaded financial documents using semantic search.")
-
-    # Initialize searcher
-    @st.cache_resource
-    def get_searcher():
-        return DocumentSearcher()
+    # Get Qdrant Cloud credentials from environment variables
+    qdrant_url = os.getenv('QDRANT_URL')
+    api_key = os.getenv('QDRANT_API_KEY')
     
-    try:
-        searcher = get_searcher()
-    except ValueError as e:
-        st.error(str(e))
-        st.stop()
-
-    # Search interface
-    st.subheader("Search Documents")
-    col1, col2 = st.columns([4, 1])
+    if not qdrant_url or not api_key:
+        st.error("Qdrant Cloud credentials not found. Please ensure QDRANT_URL and QDRANT_API_KEY are set in your .env file.")
+        return
     
-    with col1:
-        query = st.text_input("Enter your search query:")
-    with col2:
-        top_k = st.number_input("Number of results:", min_value=1, max_value=10, value=3)
+    # Initialize searcher in session state with error handling
+    if 'searcher' not in st.session_state:
+        try:
+            logger.info("Initializing new MarkdownSearcher...")
+            st.session_state.searcher = MarkdownSearcher(
+                qdrant_url=qdrant_url,
+                api_key=api_key
+            )
+            logger.info("MarkdownSearcher initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize MarkdownSearcher: {str(e)}")
+            st.error("Failed to initialize search system. Please check your connection settings.")
+            return
 
-    if st.button("Search"):
-        if query:
-            with st.spinner("Searching..."):
-                results = searcher.search(query, top_k=top_k)
+    # Add debug information
+    with st.sidebar:
+        st.markdown("### System Status")
+        try:
+            collection_status = st.session_state.searcher.verify_collection()
+            st.write("Database Connection:", "✅ Connected" if collection_status else "❌ Not Connected")
+            if not collection_status:
+                st.warning("Collection not found or empty")
+        except Exception as e:
+            st.error(f"Error checking status: {str(e)}")
+
+    # Search interface elements
+    st.markdown("### Search Your Markdown Content")
+    query = st.text_input("Enter your search query:")
+    top_k = st.slider("Number of results to show", min_value=1, max_value=10, value=3)
+
+    if query:
+        try:
+            # Verify collection before searching
+            collection_status = st.session_state.searcher.verify_collection()
+            
+            if not collection_status:
+                st.warning("Database is not properly initialized or empty. Please ensure your documents are uploaded.")
+                return
+
+            # Perform search
+            results = st.session_state.searcher.search(query, top_k=top_k)
             
             if results:
-                st.write(f"Found {len(results)} results:")
-                for result in results:
-                    with st.expander(f"Score: {result.score:.3f} - {result.document}"):
-                        st.markdown(f"**Page:** {result.page}")
-                        st.markdown(f"**Text:**\n{result.text}")
+                st.markdown("### Search Results")
+                display_results(results)
             else:
-                st.warning("No results found.")
-        else:
-            st.warning("Please enter a search query.")
-
-    # Add information about data upload
-    st.sidebar.title("About")
-    st.sidebar.info(
-        "This is a search interface for your financial documents. "
-        "To upload new documents, please use the separate upload script "
-        "with your Qdrant Cloud credentials."
-    )
+                st.info("No matching content found for your query.")
+                
+        except Exception as e:
+            logger.error(f"Search error: {str(e)}")
+            st.error(f"An error occurred during search: {str(e)}")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,93 @@
+2025-01-09 19:52:49,083 - INFO - Initializing new MarkdownSearcher...
+2025-01-09 19:52:49,402 - INFO - Use pytorch device_name: mps
+2025-01-09 19:52:49,402 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-09 19:53:00,622 - ERROR - Failed to initialize: QDRANT_CLOUD_URL and QDRANT_API_KEY environment variables are required
+2025-01-09 19:53:00,715 - ERROR - Failed to initialize MarkdownSearcher: QDRANT_CLOUD_URL and QDRANT_API_KEY environment variables are required
+2025-01-09 19:54:10,965 - INFO - Initializing new MarkdownSearcher...
+2025-01-09 19:54:10,970 - INFO - Use pytorch device_name: mps
+2025-01-09 19:54:10,970 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-09 19:54:26,396 - ERROR - Failed to initialize: name 'qdrant_cloud_url' is not defined
+2025-01-09 19:54:26,401 - ERROR - Failed to initialize MarkdownSearcher: name 'qdrant_cloud_url' is not defined
+2025-01-09 19:54:57,745 - INFO - Initializing new MarkdownSearcher...
+2025-01-09 19:54:57,766 - INFO - Use pytorch device_name: mps
+2025-01-09 19:54:57,767 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-09 19:55:11,293 - ERROR - Failed to initialize: name 'qdrant_cloud_url' is not defined
+2025-01-09 19:55:11,313 - ERROR - Failed to initialize MarkdownSearcher: name 'qdrant_cloud_url' is not defined
+2025-01-09 19:55:47,852 - INFO - Initializing new MarkdownSearcher...
+2025-01-09 19:55:47,856 - INFO - Use pytorch device_name: mps
+2025-01-09 19:55:47,856 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-09 19:56:02,326 - INFO - Successfully connected to Qdrant Cloud at https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io
+2025-01-09 19:56:02,406 - INFO - MarkdownSearcher initialized successfully
+2025-01-09 19:56:03,156 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-09 19:56:03,200 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-09 19:56:03,200 - INFO - Found collections: ['markdown_embeddings1', 'document_embeddings_v1']
+2025-01-09 19:56:03,408 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-09 19:56:03,436 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-09 19:57:09,967 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-09 19:57:09,983 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-09 19:57:09,983 - INFO - Found collections: ['markdown_embeddings1', 'document_embeddings_v1']
+2025-01-09 19:57:10,173 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-09 19:57:10,179 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-09 19:57:10,364 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-09 19:57:10,366 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-09 19:57:10,366 - INFO - Found collections: ['markdown_embeddings1', 'document_embeddings_v1']
+2025-01-09 19:57:10,540 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-09 19:57:10,544 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-09 19:57:10,722 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-09 19:57:10,725 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-09 19:57:10,725 - INFO - Found collections: ['markdown_embeddings1', 'document_embeddings_v1']
+2025-01-09 19:57:10,900 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-09 19:57:10,902 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-09 19:57:15,493 - INFO - HTTP Request: POST https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points/search "HTTP/1.1 200 OK"
+2025-01-10 05:53:27,707 - INFO - Initializing new MarkdownSearcher...
+2025-01-10 05:53:27,932 - INFO - Use pytorch device_name: mps
+2025-01-10 05:53:27,932 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-10 05:53:39,026 - INFO - Successfully connected to Qdrant Cloud at https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io
+2025-01-10 05:53:39,059 - INFO - MarkdownSearcher initialized successfully
+2025-01-10 05:53:39,735 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 05:53:39,762 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 05:53:39,762 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 05:53:39,944 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 05:53:39,974 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 05:54:04,446 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 05:54:04,693 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 05:54:04,693 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 05:54:04,866 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 05:54:04,867 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 05:54:05,043 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 05:54:05,045 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 05:54:05,045 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 05:54:05,215 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 05:54:05,217 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 05:54:05,386 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 05:54:05,388 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 05:54:05,389 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 05:54:05,573 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 05:54:05,574 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 05:54:08,564 - INFO - HTTP Request: POST https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points/search "HTTP/1.1 200 OK"
+2025-01-10 17:59:32,317 - INFO - Initializing new MarkdownSearcher...
+2025-01-10 17:59:32,751 - INFO - Use pytorch device_name: mps
+2025-01-10 17:59:32,751 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-10 17:59:46,328 - INFO - Successfully connected to Qdrant Cloud at https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io
+2025-01-10 17:59:46,366 - INFO - MarkdownSearcher initialized successfully
+2025-01-10 17:59:47,259 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 17:59:47,318 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 17:59:47,318 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 17:59:47,493 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 17:59:47,518 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 18:00:36,586 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 18:00:36,598 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 18:00:36,598 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 18:00:36,781 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 18:00:36,786 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 18:00:36,965 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 18:00:36,967 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 18:00:36,968 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 18:00:37,241 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 18:00:37,243 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 18:00:37,422 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections "HTTP/1.1 200 OK"
+2025-01-10 18:00:37,424 - INFO - Raw collections response: collections=[CollectionDescription(name='markdown_embeddings_cloud'), CollectionDescription(name='markdown_embeddings1'), CollectionDescription(name='document_embeddings_v1')]
+2025-01-10 18:00:37,424 - INFO - Found collections: ['markdown_embeddings_cloud', 'markdown_embeddings1', 'document_embeddings_v1']
+2025-01-10 18:00:37,601 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 18:00:37,611 - INFO - Verified collection markdown_embeddings1 with None vectors
+2025-01-10 18:00:40,708 - INFO - HTTP Request: POST https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points/search "HTTP/1.1 200 OK"

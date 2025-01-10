@@ -1,0 +1,129 @@
+2025-01-09 19:34:20,301 - INFO - Use pytorch device_name: mps
+2025-01-09 19:34:20,301 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-09 19:34:33,597 - INFO - Found 15 markdown files
+2025-01-09 19:36:19,415 - INFO - HTTP Request: GET https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 404 Not Found"
+2025-01-09 19:36:19,861 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-09 19:36:19,914 - INFO - Created collection markdown_embeddings1
+2025-01-09 19:36:21,511 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:36:22,123 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:36:22,657 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:36:23,285 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:36:23,930 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:37:00,523 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:37:01,066 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:37:11,193 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:40:09,092 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:40:09,839 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:40:10,333 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:40:10,797 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:40:11,362 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:41:47,190 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:42:18,464 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:42:46,125 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:43:10,008 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:43:10,710 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:43:10,908 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:43:52,402 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:43:54,803 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:43:56,550 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:44:35,588 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:44:36,380 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:44:36,897 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:45:08,409 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:45:38,578 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:45:38,879 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:46:13,814 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:46:14,364 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:46:14,761 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:46:19,070 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:47:27,614 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:47:28,137 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:47:28,624 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:47:29,148 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:47:29,343 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-09 19:47:29,347 - INFO - Upload completed successfully
+2025-01-10 17:30:43,816 - INFO - Use pytorch device_name: mps
+2025-01-10 17:30:43,817 - INFO - Load pretrained SentenceTransformer: intfloat/multilingual-e5-large
+2025-01-10 17:30:57,113 - INFO - HTTP Request: DELETE https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 17:30:57,139 - INFO - Deleted existing collection
+2025-01-10 17:30:57,548 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1 "HTTP/1.1 200 OK"
+2025-01-10 17:30:57,551 - INFO - Initialized collection: markdown_embeddings1
+2025-01-10 17:30:57,552 - INFO - Found 15 markdown files
+2025-01-10 17:30:57,562 - INFO - Processing file: Agthia-Q324-Engagement-pack_November.md
+2025-01-10 17:30:57,571 - INFO - Created 10 chunks
+2025-01-10 17:31:06,430 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:06,565 - INFO - Uploaded batch 1 for Agthia-Q324-Engagement-pack_November.md
+2025-01-10 17:31:06,565 - INFO - Successfully processed Agthia-Q324-Engagement-pack_November.md
+2025-01-10 17:31:06,579 - INFO - Processing file: Tabreed-Investor-Presentation-Mar-2022.md
+2025-01-10 17:31:06,585 - INFO - Created 7 chunks
+2025-01-10 17:31:13,586 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:13,594 - INFO - Uploaded batch 1 for Tabreed-Investor-Presentation-Mar-2022.md
+2025-01-10 17:31:13,594 - INFO - Successfully processed Tabreed-Investor-Presentation-Mar-2022.md
+2025-01-10 17:31:13,600 - INFO - Processing file: Agthia Investor Presentation - November 2015.md
+2025-01-10 17:31:13,602 - INFO - Created 2 chunks
+2025-01-10 17:31:14,995 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:14,998 - INFO - Uploaded batch 1 for Agthia Investor Presentation - November 2015.md
+2025-01-10 17:31:14,998 - INFO - Successfully processed Agthia Investor Presentation - November 2015.md
+2025-01-10 17:31:15,005 - INFO - Processing file: Agthia-Engagement-pack-June-2024.md
+2025-01-10 17:31:15,012 - INFO - Created 9 chunks
+2025-01-10 17:31:19,010 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:19,019 - INFO - Uploaded batch 1 for Agthia-Engagement-pack-June-2024.md
+2025-01-10 17:31:19,019 - INFO - Successfully processed Agthia-Engagement-pack-June-2024.md
+2025-01-10 17:31:19,023 - INFO - Processing file: Abu Dhabi PJSC Ports MAY 2021.md
+2025-01-10 17:31:19,026 - INFO - Created 5 chunks
+2025-01-10 17:31:21,088 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:21,091 - INFO - Uploaded batch 1 for Abu Dhabi PJSC Ports MAY 2021.md
+2025-01-10 17:31:21,091 - INFO - Successfully processed Abu Dhabi PJSC Ports MAY 2021.md
+2025-01-10 17:31:21,094 - INFO - Processing file: 1-agthia-corporate-presentation-september2017_201709 (1).md
+2025-01-10 17:31:21,098 - INFO - Created 4 chunks
+2025-01-10 17:31:22,786 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:22,790 - INFO - Uploaded batch 1 for 1-agthia-corporate-presentation-september2017_201709 (1).md
+2025-01-10 17:31:22,790 - INFO - Successfully processed 1-agthia-corporate-presentation-september2017_201709 (1).md
+2025-01-10 17:31:22,792 - INFO - Processing file: 20211111_TAQA-9M-2021-Analyst-Presentation-vF.md
+2025-01-10 17:31:22,794 - INFO - Created 2 chunks
+2025-01-10 17:31:23,665 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:23,667 - INFO - Uploaded batch 1 for 20211111_TAQA-9M-2021-Analyst-Presentation-vF.md
+2025-01-10 17:31:23,667 - INFO - Successfully processed 20211111_TAQA-9M-2021-Analyst-Presentation-vF.md
+2025-01-10 17:31:23,668 - INFO - Processing file: Investor-Presentation-February-2023.md
+2025-01-10 17:31:23,671 - INFO - Created 7 chunks
+2025-01-10 17:31:27,106 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:27,109 - INFO - Uploaded batch 1 for Investor-Presentation-February-2023.md
+2025-01-10 17:31:27,109 - INFO - Successfully processed Investor-Presentation-February-2023.md
+2025-01-10 17:31:27,111 - INFO - Processing file: Tabreed-Investor-Presentation-Nov-2019-v1.md
+2025-01-10 17:31:27,113 - INFO - Created 9 chunks
+2025-01-10 17:31:30,508 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:30,510 - INFO - Uploaded batch 1 for Tabreed-Investor-Presentation-Nov-2019-v1.md
+2025-01-10 17:31:30,510 - INFO - Successfully processed Tabreed-Investor-Presentation-Nov-2019-v1.md
+2025-01-10 17:31:30,516 - INFO - Processing file: Tabreed_Investor-Presentation_August-2024.md
+2025-01-10 17:31:30,518 - INFO - Created 9 chunks
+2025-01-10 17:31:34,085 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:34,094 - INFO - Uploaded batch 1 for Tabreed_Investor-Presentation_August-2024.md
+2025-01-10 17:31:34,095 - INFO - Successfully processed Tabreed_Investor-Presentation_August-2024.md
+2025-01-10 17:31:34,100 - INFO - Processing file: Abu Dhabi PJSC Ports OCTOBER 2021.md
+2025-01-10 17:31:34,101 - INFO - Created 3 chunks
+2025-01-10 17:31:36,233 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:36,236 - INFO - Uploaded batch 1 for Abu Dhabi PJSC Ports OCTOBER 2021.md
+2025-01-10 17:31:36,236 - INFO - Successfully processed Abu Dhabi PJSC Ports OCTOBER 2021.md
+2025-01-10 17:31:36,238 - INFO - Processing file: Agthia Investor Presentation - April 2015.md
+2025-01-10 17:31:36,242 - INFO - Created 4 chunks
+2025-01-10 17:31:38,337 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:38,342 - INFO - Uploaded batch 1 for Agthia Investor Presentation - April 2015.md
+2025-01-10 17:31:38,343 - INFO - Successfully processed Agthia Investor Presentation - April 2015.md
+2025-01-10 17:31:38,350 - INFO - Processing file: Tabreed-Investor-Presentation-Mar-2021.md
+2025-01-10 17:31:38,357 - INFO - Created 8 chunks
+2025-01-10 17:31:41,564 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:41,567 - INFO - Uploaded batch 1 for Tabreed-Investor-Presentation-Mar-2021.md
+2025-01-10 17:31:41,567 - INFO - Successfully processed Tabreed-Investor-Presentation-Mar-2021.md
+2025-01-10 17:31:41,570 - INFO - Processing file: Agthia_corporate_presentation_2019April.md
+2025-01-10 17:31:41,572 - INFO - Created 2 chunks
+2025-01-10 17:31:42,454 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:42,457 - INFO - Uploaded batch 1 for Agthia_corporate_presentation_2019April.md
+2025-01-10 17:31:42,457 - INFO - Successfully processed Agthia_corporate_presentation_2019April.md
+2025-01-10 17:31:42,460 - INFO - Processing file: Agthia-Group-PJSC-Investor-Engagement-Pack.md
+2025-01-10 17:31:42,463 - INFO - Created 7 chunks
+2025-01-10 17:31:45,175 - INFO - HTTP Request: PUT https://a826b399-37ef-4a44-a428-e75353116332.eu-central-1-0.aws.cloud.qdrant.io:6333/collections/markdown_embeddings1/points?wait=true "HTTP/1.1 200 OK"
+2025-01-10 17:31:45,176 - INFO - Uploaded batch 1 for Agthia-Group-PJSC-Investor-Engagement-Pack.md
+2025-01-10 17:31:45,177 - INFO - Successfully processed Agthia-Group-PJSC-Investor-Engagement-Pack.md
+2025-01-10 17:31:45,178 - INFO - Processing complete!
+2025-01-10 17:31:45,178 - INFO - Successfully processed: 15 files
+2025-01-10 17:31:45,178 - INFO - Failed to process: 0 files
